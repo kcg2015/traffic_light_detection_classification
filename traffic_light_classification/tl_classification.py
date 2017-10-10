@@ -23,16 +23,16 @@ def build_model():
     '''
     num_classes = 3
     model = Sequential()
-    model.add(Conv2D(16, (3, 3), padding='same',
+    model.add(Conv2D(8, (3, 3), padding='same',
                      input_shape=X_train.shape[1:]))
     model.add(Activation('relu'))
     model.add(Conv2D(16, (3, 3)))
     model.add(Activation('relu'))
-    model.add(Conv2D(16, (3, 3)))
+    model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(128))
+    model.add(Dense(64))
     model.add(Activation('relu'))
     model.add(Dense(num_classes))
     model.add(Activation('softmax'))
