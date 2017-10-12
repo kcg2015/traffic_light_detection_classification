@@ -124,7 +124,7 @@ class TLClassifier(object):
               scores = np.squeeze(scores)
     
               cls = classes.tolist()
-              #print(cls)
+             
               # Find the first occurence of traffic light detection id=10
               idx = next((i for i, v in enumerate(cls) if v == 10.), None)
               # If there is no detection

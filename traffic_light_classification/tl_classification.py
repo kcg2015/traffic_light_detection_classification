@@ -15,6 +15,7 @@ from keras.layers import Dense, Activation, Flatten
 from keras.layers import Conv2D, MaxPooling2D
 from keras.models import load_model
 from keras.callbacks import ModelCheckpoint, TensorBoard
+from keras.utils import plot_model
 
 
 def build_model():
@@ -28,6 +29,7 @@ def build_model():
     model.add(Activation('relu'))
     model.add(Conv2D(16, (3, 3)))
     model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
@@ -191,6 +193,8 @@ if __name__=='__main__':
 
     # Build model
     model = build_model()
+    
+    plot_model(model, to_file='model.png')
     
     # Training
     history, model = train_model(data_train, model, hyper_params, model_names)
